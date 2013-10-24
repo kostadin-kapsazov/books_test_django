@@ -1,0 +1,22 @@
+*.pyc
+*.pyo
+.DS_Store
+/.idea/
+
+# Virtualenv 
+/bin/
+/source/
+/lib/
+/share/
+/include/
+/build/
+.Python
+
+
+# Project specific
+
+/test/
+/output/
+*.progress
+*.csv
+
