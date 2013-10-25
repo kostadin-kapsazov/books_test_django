@@ -12,15 +12,13 @@
         </style>
     </head>
     <body>
-        <div>
-            Title: <input type="text" name="title"><br>
-            Author: <input type="text" name="author"><br>
-            ISBN: <input type="text" name="isbn"><br>
-            Number of pages: <input type="text" name="pages"><br>
+        <form action="{% url 'books_add' %}" method="post">{% csrf_token %}
+            Title: <input type="text" name="title" id="title"><br>
+            Author: <input type="text" name="author" id="author"><br>
+            ISBN: <input type="text" name="isbn" id="isbn"><br>
+            Number of pages: <input type="text" name="pages" id="pages"><br>
 
-            <a href="http://www.google.com/">
-                <input type="button" value="Save" />
-            </a>
-        </div>
+            <input type="submit" value="Save" />
+        </form>
     </body>
 </html>

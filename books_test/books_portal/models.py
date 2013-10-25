@@ -1,6 +1,6 @@
-import datetime
-from django.utils import timezone
 from django.db import models
+from django.forms import ModelForm
+
 
 class Books(models.Model):
     title = models.CharField(max_length=200)
@@ -8,5 +8,10 @@ class Books(models.Model):
     isbn = models.CharField(max_length=200)
     pages = models.IntegerField(default=0)
 
-    def __unicode__(self):  # Python 3: def __str__(self):
+    def __unicode__(self):
         return self.title
+
+
+class BooksForm(ModelForm):
+    class Meta:
+        model = Books
