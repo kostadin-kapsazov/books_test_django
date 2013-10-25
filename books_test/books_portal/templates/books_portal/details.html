@@ -12,17 +12,11 @@
         </style>
     </head>
     <body>
-        <p>
-        Title:{{ book.title }}
-        </p>
-        <p>
-        Author:{{ book.author }}
-        </p>
-        <p>
-        ISBN:{{ book.isbn }}
-        </p>
+        <div>
 
-        <a href="{% url 'books_portal_books' %}">
+            {{ object }}
+        </div>
+        <a href="{% url 'books_portal' %}">
             <input type="button" value="OK" />
         </a>
     </body>

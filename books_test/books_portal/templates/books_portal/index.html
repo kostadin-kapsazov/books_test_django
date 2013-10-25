@@ -19,13 +19,14 @@
             </tr>
             {% for book in books_list %}
             <tr>
-                <td><a href="{% url 'books_details' book_id=book.id %}">{{ book.title }}</a></td>
+                <td><a href="{% url 'books_details' pk=book.id%}">{{ book.title }}</a></td>
                 <td>{{ book.author }}</td>
+                <td><a href="{% url 'books_edit' pk=book.id%}">Edit</a></td>
             </tr>
             {% endfor %}
         </table>
 
-        <a href="../add">
+        <a href="{% url 'books_add' %}">
             <input type="button" value="add" />
         </a>
     </body>

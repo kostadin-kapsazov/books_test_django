@@ -1,13 +1,31 @@
 # coding: utf-8
 
 
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView, UpdateView, CreateView, DetailView, View
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.http import Http404
 
 from .models import BooksForm
 from .models import Books
+
+class BooksDetailView(DetailView):
+    model = Books
+    template_name = "books_portal/details.html"
+
+class BooksCreateView(CreateView):
+    model = Books
+    template_name = "books_portal/add.html"
+    success_url = 'books_portal'
+
+class BooksUpdateView(UpdateView):
+    model = Books
+    template_name = "books_portal/add.html"
+    success_url = 'books_portal'
+
+class BooksView(View):
+    model = Books
+    template_name = "books_portal/index.html"
 
 
 class BooksView(TemplateView):
