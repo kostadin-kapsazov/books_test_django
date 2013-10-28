@@ -12,10 +12,20 @@
         </style>
     </head>
     <body>
-        <div>
-
-            {{ object }}
-        </div>
+        <table border="1">
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Pages</th>
+            </tr>
+            <tr>
+                <td>{{ books.title }}</td>
+                <td>{{ books.author }}</td>
+                <td>{{ books.isbn }}</td>
+                <td>{{ books.pages }}</td>
+            </tr>
+        </table>
         <a href="{% url 'books_portal' %}">
             <input type="button" value="OK" />
         </a>
