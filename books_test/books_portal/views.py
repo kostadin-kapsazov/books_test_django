@@ -1,5 +1,7 @@
 # coding: utf-8
+from django.core.urlresolvers import reverse
 from django.views.generic import ListView, UpdateView, CreateView, DetailView
+
 
 from .models import Books
 
@@ -12,13 +14,13 @@ class BooksDetailView(DetailView):
 class BooksCreateView(CreateView):
     model = Books
     template_name = "books_portal/add.html"
-    success_url = 'books_portal'
+    success_url = reverse('books_portal')
 
 
 class BooksUpdateView(UpdateView):
     model = Books
     template_name = "books_portal/add.html"
-    success_url = 'books_portal'
+    success_url = reverse('books_portal')
 
 
 class BooksListView(ListView):
