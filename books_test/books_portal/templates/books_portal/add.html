@@ -1,20 +1,53 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Add book</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <style type="text/css">
-        
-            body {
-                font-family: "Courier New";
-            }
+{% extends "books_portal/base.html" %}
 
-        </style>
-    </head>
-    <body>
-        <form action="" method="post">{% csrf_token %}
-            {{form.as_p}}
-            <input type="submit" value="Save" />
+{% load widget_tweaks %}
+
+{% block title %}Добави книжка{% endblock %}
+
+{% block extracss %}
+<style>
+    .top-buffer { margin-top:20px; }
+</style>
+{% endblock extracss %}
+
+{% block content %}
+        <form action="" method="post" class="form-horizontal" role="form">{% csrf_token %}
+            <div class="row top-buffer">
+                <div class="col-md-1">
+                    {{form.title.label_tag}}
+                </div>
+                <div class="col-md-2">
+                    {{form.title}}
+                </div>
+            </div>
+            <div class="row top-buffer">
+                <div class="col-md-1">
+                    {{form.author.label_tag}}
+                </div>
+                <div class="col-md-2">
+                    {{form.author}}
+                </div>
+            </div>
+            <div class="row top-buffer">
+                <div class="col-md-1">
+                    {{form.isbn.label_tag}}
+                </div>
+                <div class="col-md-2">
+                    {{form.isbn}}
+                </div>
+            </div>
+            <div class="row top-buffer">
+                <div class="col-md-1">
+                    {{form.pages.label_tag}}
+                </div>
+                <div class="col-md-2">
+                    {{form.pages}}
+                </div>
+            </div>
+            <div class="row top-buffer">
+                <div class="col-md-2 col-md-offset-1">
+                    <input type="submit" value="Save" class="btn btn-primary btn-lg"/>
+                </div>
+            </div>
         </form>
-    </body>
-</html>
+{% endblock %}

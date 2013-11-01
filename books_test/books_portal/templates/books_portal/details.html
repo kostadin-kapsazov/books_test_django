@@ -1,33 +1,29 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Detail book</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <style type="text/css">
-        
-            body {
-                font-family: "Courier New";
-            }
+{% extends "books_portal/base.html" %}
 
-        </style>
-    </head>
-    <body>
-        <table border="1">
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>ISBN</th>
-                <th>Pages</th>
-            </tr>
-            <tr>
-                <td>{{ books.title }}</td>
-                <td>{{ books.author }}</td>
-                <td>{{ books.isbn }}</td>
-                <td>{{ books.pages }}</td>
-            </tr>
+{% load widget_tweaks %}
+
+{% block title %}Подробна информация{% endblock %}
+
+{% block content %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                    <th>Pages</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ books.title }}</td>
+                    <td>{{ books.author }}</td>
+                    <td>{{ books.isbn }}</td>
+                    <td>{{ books.pages }}</td>
+                </tr>
+            </tbody>
         </table>
-        <a href="{% url 'books_portal' %}">
-            <input type="button" value="OK" />
-        </a>
-    </body>
-</html>
+        <div class="row">
+            <div class="col-md-2 col-md-offset-5"><a href="{% url 'books_portal' %}" class="btn btn-primary btn-lg">OK</a></div>
+        </div>
+{% endblock %}

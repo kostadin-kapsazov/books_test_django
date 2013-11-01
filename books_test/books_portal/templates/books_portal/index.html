@@ -1,32 +1,22 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Books</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <style type="text/css">
-        
-            body {
-                font-family: "Courier New";
-            }
+{% extends "books_portal/base.html" %}
 
-        </style>
-    </head>
-    <body>
-        <table border="1">
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-            </tr>
-            {% for book in books_list %}
-            <tr>
-                <td><a href="{% url 'books_details' pk=book.id%}">{{ book.title }}</a></td>
-                <td>{{ book.author }}</td>
-                <td><a href="{% url 'books_edit' pk=book.id%}">Edit</a></td>
-            </tr>
-            {% endfor %}
-        </table>
-        <a href="{% url 'books_add' %}">
-            <input type="button" value="add" />
-        </a>
-    </body>
-</html>
+{% block title %}Списъци със книжки{% endblock %}
+
+{% block content %}
+    <table class="table table table-hover">
+        <tr>
+            <th class="text-center">Title</th>
+            <th class="text-center">Author</th>
+        </tr>
+        {% for book in books_list %}
+        <tr>
+            <td class="text-center"><a href="{% url 'books_details' pk=book.id%}">{{ book.title }}</a></td>
+            <td class="text-center">{{ book.author }}</td>
+            <td class="text-center"><a href="{% url 'books_edit' pk=book.id%}" class="btn btn-default">Edit</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-5"><a href="{% url 'books_add' %}" class="btn btn-primary btn-lg">Add</a></div>
+    </div>
+{% endblock %}
