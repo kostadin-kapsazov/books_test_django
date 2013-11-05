@@ -1,12 +1,14 @@
 {% extends "books_portal/base.html" %}
 
 {% load widget_tweaks %}
+{% load books_extras %}
 
 {% block title %}Добави книжка{% endblock %}
 
 {% block extracss %}
 <style>
     .top-buffer { margin-top:20px; }
+    .bs-docs-nav { background-color: #563d7c; }
 </style>
 {% endblock extracss %}
 
@@ -17,7 +19,7 @@
                     {{form.title.label_tag}}
                 </div>
                 <div class="col-md-2">
-                    {{form.title}}
+                    {{form.title|addcss:"form-control"}}
                 </div>
             </div>
             <div class="row top-buffer">
@@ -25,7 +27,7 @@
                     {{form.author.label_tag}}
                 </div>
                 <div class="col-md-2">
-                    {{form.author}}
+                    {{form.author|addcss:"form-control"}}
                 </div>
             </div>
             <div class="row top-buffer">
@@ -33,7 +35,7 @@
                     {{form.isbn.label_tag}}
                 </div>
                 <div class="col-md-2">
-                    {{form.isbn}}
+                    {{form.isbn|addcss:"form-control"}}
                 </div>
             </div>
             <div class="row top-buffer">
@@ -41,7 +43,7 @@
                     {{form.pages.label_tag}}
                 </div>
                 <div class="col-md-2">
-                    {{form.pages}}
+                    {{form.pages|addcss:"form-control"}}
                 </div>
             </div>
             <div class="row top-buffer">

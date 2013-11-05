@@ -4,26 +4,49 @@
 
 {% block title %}Подробна информация{% endblock %}
 
+{% block extracss %}
+<style>
+    .top-buffer { margin-top:20px; }
+    .bs-docs-nav { background-color: #4CD085; }
+</style>
+{% endblock extracss %}
+
 {% block content %}
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>ISBN</th>
-                    <th>Pages</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{ books.title }}</td>
-                    <td>{{ books.author }}</td>
-                    <td>{{ books.isbn }}</td>
-                    <td>{{ books.pages }}</td>
-                </tr>
-            </tbody>
-        </table>
+         <div class="row top-buffer">
+                <div class="col-md-1">
+                    <strong>Title:</strong>
+                </div>
+                <div class="col-md-2">
+                    {{books.title}}
+                </div>
+            </div>
+            <div class="row top-buffer">
+                <div class="col-md-1">
+                    <strong>Author:</strong>
+                </div>
+                <div class="col-md-2">
+                    {{books.author}}
+                </div>
+            </div>
+            <div class="row top-buffer">
+                <div class="col-md-1">
+                    <strong>ISBN:</strong>
+                </div>
+                <div class="col-md-2">
+                    {{books.isbn}}
+                </div>
+            </div>
+            <div class="row top-buffer">
+                <div class="col-md-1">
+                    <strong>Number of pages:</strong>
+                </div>
+                <div class="col-md-2">
+                    {{books.pages}}
+                </div>
+            </div>
+            <div class="row top-buffer">
+                </div>
         <div class="row">
-            <div class="col-md-2 col-md-offset-5"><a href="{% url 'books_portal' %}" class="btn btn-primary btn-lg">OK</a></div>
+            <div class="col-md-1 col-md-offset-1 text-center"><a href="{% url 'books_portal' %}" class="btn btn-primary btn-lg">OK</a></div>
         </div>
 {% endblock %}

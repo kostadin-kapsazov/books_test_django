@@ -2,11 +2,19 @@
 
 {% block title %}Списъци със книжки{% endblock %}
 
+{% block extracss %}
+<style>
+    .top-buffer { margin-top:20px; }
+    .bs-docs-nav { background-color: #563d7c; }
+</style>
+{% endblock extracss %}
+
 {% block content %}
     <table class="table table table-hover">
         <tr>
             <th class="text-center">Title</th>
             <th class="text-center">Author</th>
+            <th class="text-center">Edit</th>
         </tr>
         {% for book in books_list %}
         <tr>
@@ -17,6 +25,6 @@
         {% endfor %}
     </table>
     <div class="row">
-        <div class="col-md-2 col-md-offset-5"><a href="{% url 'books_add' %}" class="btn btn-primary btn-lg">Add</a></div>
+        <div class="col-md-2 col-md-offset-5 text-center"><a href="{% url 'books_add' %}" class="btn btn-primary btn-lg">Add</a></div>
     </div>
 {% endblock %}
